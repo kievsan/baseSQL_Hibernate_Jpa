@@ -16,7 +16,6 @@ public class PersonController {
   private final PersonRepo repo;
 
   @GetMapping
-  @ResponseBody
   public ResponseEntity <List<Person>> selectPersonsByCity(@RequestParam("city") String city) {
     return ResponseEntity.ok(repo.getPersonsByCity(city));
   }
