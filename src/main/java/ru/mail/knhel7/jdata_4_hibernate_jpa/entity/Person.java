@@ -35,11 +35,11 @@ public class Person implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return getAge() == person.getAge() && Objects.equals(getName(),
-                person.getName()) && Objects.equals(getSurname(),
-                person.getSurname()) && Objects.equals(getPhone(),
-                person.getPhone()) && Objects.equals(getCity(),
-                person.getCity());
+        return getAge() == person.getAge() &&
+                Objects.equals(getName(), person.getName()) &&
+                Objects.equals(getSurname(), person.getSurname()) &&
+                Objects.equals(getPhone(), person.getPhone()) &&
+                Objects.equals(getCity(), person.getCity());
     }
 
     @Override
