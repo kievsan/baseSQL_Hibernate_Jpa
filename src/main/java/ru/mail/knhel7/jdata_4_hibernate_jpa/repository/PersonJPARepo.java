@@ -10,9 +10,9 @@ import java.util.Optional;
 
 public interface PersonJPARepo extends JpaRepository<Person, PersonId> {
 
-    @Query("select p from Person as p where p.city = :city")
+    @Query("select p from Person as p where lower(p.city) = lower(:city)")
     List<Person> findByCity(String city);
-    @Query("select p from Person as p where p.name = :name and p.surname = :surname")
+    @Query("select p from Person as p where lower(p.name) = lower(:name) and lower(p.surname) = lower(:surname)")
     Optional<Person> findByNameAndSurname(String name, String surname);
     @Query("select p from Person as p where p.age < :age order by p.age")
     List<Person> findByAgeLessThan(int age);
