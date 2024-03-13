@@ -13,7 +13,7 @@
 Нужно выполнить и отправить на проверку задачи:
 
 1. [Слой DAO c JPA Repositories](tasks/taskEx5_1/README.md).
-2. [@Query*](tasks/taskEx5_2/README.md) (задача со звёздочкой *).
+1. [@Query*](tasks/taskEx5_2/README.md) (задача со звёздочкой *).
 
 =======
 
