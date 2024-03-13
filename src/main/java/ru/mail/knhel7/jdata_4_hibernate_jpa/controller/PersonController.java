@@ -21,7 +21,7 @@ public class PersonController {
   }
 
   @GetMapping("/by-name")
-  public ResponseEntity<Person> getPersonsByNameAndSurname(@RequestParam("name") String name, @RequestParam("surname") String surname){
+  public ResponseEntity<Person> getPersonByNameAndSurname(@RequestParam("name") String name, @RequestParam("surname") String surname){
     return repo.findByNameAndSurname(name, surname).map(ResponseEntity::ok)
             .orElseGet(() -> ResponseEntity.badRequest().build());
   }
