@@ -2,11 +2,21 @@
 
 Необходимо выполнить и предоставить на проверку следующую задачу:
 
-## [DAO слой c Hibernate](tasks/task1/README.md).
-## [Две таблицы с Hibernate](tasks/task2/README.md) (со звездочкой *).
-## [Миграции c Hibernate](tasks/task3/README.md) (со звездочкой *).
+1. [DAO слой c Hibernate](tasks/task1/README.md).
+2. [Две таблицы с Hibernate](tasks/task2/README.md) (со звездочкой *).
+3. [Миграции c Hibernate](tasks/task3/README.md) (со звездочкой *).
 
 =======
+
+# Домашнее задание к занятию «8.5. Spring Data JPA»
+
+Нужно выполнить и отправить на проверку задачи:
+
+1. [Слой DAO c JPA Repositories](tasks/taskEx5_1/README.md).
+2. [@Query*](tasks/taskEx5_2/README.md) (задача со звёздочкой *).
+
+=======
+
 
 ## Инструкция по выполнению домашнего задания
 
