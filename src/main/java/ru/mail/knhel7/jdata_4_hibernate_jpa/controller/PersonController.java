@@ -1,7 +1,6 @@
 package ru.mail.knhel7.jdata_4_hibernate_jpa.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.mail.knhel7.jdata_4_hibernate_jpa.entity.Person;
@@ -22,14 +21,14 @@ public class PersonController {
   }
 
   @GetMapping("/by-name")
-  public ResponseEntity<Person> getPersonsByCity(@RequestParam("name") String name, @RequestParam("surname") String surname){
+  public ResponseEntity<Person> getPersonByNameAndSurname(@RequestParam("name") String name, @RequestParam("surname") String surname){
     return repo.findByNameAndSurname(name, surname).map(ResponseEntity::ok)
             .orElseGet(() -> ResponseEntity.badRequest().build());
   }
 
   @GetMapping("/by-age")
   public ResponseEntity<List<Person>> getPersonsByAge(@RequestParam("age") int age){
-    return ResponseEntity.ok(repo.findByAgeLessThan(age, Sort.by(String.valueOf(age)).descending()));
+    return ResponseEntity.ok(repo.findByAgeLessThan(age));
   }
 
 }
