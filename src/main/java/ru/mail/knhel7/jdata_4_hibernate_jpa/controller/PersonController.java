@@ -29,7 +29,7 @@ public class PersonController {
 
   @GetMapping("/by-age")
   public ResponseEntity<List<Person>> getPersonsByAge(@RequestParam("age") int age){
-    return ResponseEntity.ok(repo.findByAgeLessThan(age, Sort.by(String.valueOf(age)).descending()));
+    return ResponseEntity.ok(repo.findByAgeLessThan(age, Sort.by(String.valueOf(age))));
   }
 
 }
