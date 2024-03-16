@@ -29,6 +29,9 @@ public class Person implements Serializable {
     private String phone;
     @Column(name = "city_of_living", length = 30)
     private String city;
+//    @Enumerated(EnumType.STRING)
+//    @Column(name = "role", nullable = false)
+//    private Role role;
 
     @Override
     public boolean equals(Object o) {
