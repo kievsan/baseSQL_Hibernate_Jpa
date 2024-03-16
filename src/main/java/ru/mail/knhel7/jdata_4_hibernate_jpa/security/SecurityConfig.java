@@ -26,7 +26,7 @@ public class SecurityConfig {
 //    final User.UserBuilder userBuilder = User.builder().passwordEncoder(new BCryptPasswordEncoder()::encode);
 
     @Bean
-    UserDetailsService authentication() {
+    UserDetailsService userAuthentication() {
         UserDetails admin = userBuilder.username("admin").password("adminpwd").roles("READ", "WRITE", "DELETE").build();
         UserDetails reader = userBuilder.username("reader").password("readerpwd").roles("READ").build();
         UserDetails writer = userBuilder.username("writer").password("writerpwd").roles("WRITE").build();

@@ -37,7 +37,7 @@ public class PersonController {
               .orElseGet(() -> ResponseEntity.badRequest().build());
   }
 
-  @RolesAllowed({"ROLE_READ", "ROLE_WRITE"})
+  @RolesAllowed({"ROLE_READ", "ROLE_WRITE"})  // дает ОШИБКУ 403  ?????!
   @GetMapping("/by-age")
   public ResponseEntity<List<Person>> getPersonsByAge(@RequestParam("age") int age){
     return ResponseEntity.ok(repo.findByAgeLessThan(age));
