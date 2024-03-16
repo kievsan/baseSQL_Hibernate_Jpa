@@ -5,11 +5,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import ru.mail.knhel7.jdata_4_hibernate_jpa.entity.Person;
 import ru.mail.knhel7.jdata_4_hibernate_jpa.repository.PersonJPARepo;
 
-import java.security.Principal;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -20,8 +20,8 @@ public class PersonController {
   private final PersonJPARepo repo;
 
   @GetMapping("/")
-  public ResponseEntity<String> hi(Principal principal) {
-    return ResponseEntity.ok("Hi, " + principal.getName() + " !!!");
+  public ResponseEntity<String> hi(Authentication authentication) {
+    return ResponseEntity.ok("Hi, " + authentication.getName() + " !!!  " + authentication.getAuthorities());
   }
 
   @Secured("ROLE_READ")

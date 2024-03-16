@@ -40,7 +40,7 @@ public class SecurityConfig {
     public SecurityFilterChain filters(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((authz) -> authz
-//                        .requestMatchers("/").permitAll()
+                        .requestMatchers("/").permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults())
