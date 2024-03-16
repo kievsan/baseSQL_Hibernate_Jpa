@@ -31,8 +31,8 @@ public class SecurityConfig {
         UserDetails reader = userBuilder.username("reader").password("readerpwd").roles("READ").build();
         UserDetails writer = userBuilder.username("writer").password("writerpwd").roles("WRITE").build();
         UserDetails killer = userBuilder.username("killer").password("killerpwd").roles("DELETE").build();
-        UserDetails alex = userBuilder.username("alex").password("alexpwd").roles("READ", "WRITE").build();
-        UserDetails guest = userBuilder.username("person").password("guestpwd").authorities("READ").build();
+        UserDetails alex = userBuilder.username("alexey").password("alexeypwd").roles("READ", "WRITE").build();
+        UserDetails guest = userBuilder.username("guest").password("guestpwd").authorities("READ").build();
         return new InMemoryUserDetailsManager(admin, reader, writer, killer, alex, guest);
     }
 

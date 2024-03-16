@@ -30,14 +30,14 @@ public class PersonController {
     return ResponseEntity.ok(repo.findByCity(city));
   }
 
-  @RolesAllowed({"ROLE_READ", "ROLE_WRITE"})
+  @PreAuthorize("(hasRole('ROLE_DELETE') or hasRole('ROLE_WRITE')) and (#name == authentication.principal.username)")
   @GetMapping("/by-name")
   public ResponseEntity<Person> getPersonByNameAndSurname(@RequestParam("name") String name, @RequestParam("surname") String surname){
-    return repo.findByNameAndSurname(name, surname).map(ResponseEntity::ok)
-            .orElseGet(() -> ResponseEntity.badRequest().build());
+      return repo.findByNameAndSurname(name, surname).map(ResponseEntity::ok)
+              .orElseGet(() -> ResponseEntity.badRequest().build());
   }
 
-  @PreAuthorize("hasRole('ROLE_DELETE') or hasRole('ROLE_WRITE')")
+  @RolesAllowed({"ROLE_READ", "ROLE_WRITE"})
   @GetMapping("/by-age")
   public ResponseEntity<List<Person>> getPersonsByAge(@RequestParam("age") int age){
     return ResponseEntity.ok(repo.findByAgeLessThan(age));
