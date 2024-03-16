@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.mail.knhel7.jdata_4_hibernate_jpa.entity.Person;
 import ru.mail.knhel7.jdata_4_hibernate_jpa.repository.PersonJPARepo;
 
+import java.security.Principal;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -19,8 +20,8 @@ public class PersonController {
   private final PersonJPARepo repo;
 
   @GetMapping("/")
-  public ResponseEntity<String> hi() {
-    return ResponseEntity.ok("Hi!!!");
+  public ResponseEntity<String> hi(Principal principal) {
+    return ResponseEntity.ok("Hi, " + principal.getName() + " !!!");
   }
 
   @Secured("ROLE_READ")
