@@ -1,5 +1,6 @@
 package ru.mail.knhel7.jdata_4_hibernate_jpa.controller;
 
+import jakarta.annotation.security.PermitAll;
 import jakarta.annotation.security.RolesAllowed;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ public class PersonController {
 
   private final PersonJPARepo repo;
 
+  @PermitAll
   @GetMapping("/")
   public ResponseEntity<String> hi(Authentication authentication) {
     return ResponseEntity.ok("Hi, " + authentication.getName() + " !!!  " + authentication.getAuthorities());
@@ -37,7 +39,7 @@ public class PersonController {
               .orElseGet(() -> ResponseEntity.badRequest().build());
   }
 
-  @RolesAllowed({"ROLE_READ", "ROLE_WRITE"})  // дает ОШИБКУ 403  ?????!
+  @RolesAllowed({"ROLE_READ", "ROLE_WRITE"})  // дает ОШИБКУ 403 всегда, даже там, где ее нет ?????! @Secured - норм
   @GetMapping("/by-age")
   public ResponseEntity<List<Person>> getPersonsByAge(@RequestParam("age") int age){
     return ResponseEntity.ok(repo.findByAgeLessThan(age));
